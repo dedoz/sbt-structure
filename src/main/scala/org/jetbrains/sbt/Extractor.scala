@@ -50,12 +50,12 @@ object Extractor {
     val java = {
       val home = Keys.javaHome.in(projectRef, Compile).get(structure.data).get
 
-      val options: Seq[String] = Project.runTask(javacOptions.in(projectRef, Compile), state) match {
+      /*val options: Seq[String] = Project.runTask(javacOptions.in(projectRef, Compile), state) match {
         case Some((_, Value(it))) => it
         case _ => Seq.empty
-      }
+      }*/
 
-      home.map(JavaData(_, options))
+      home.map(JavaData(_, /*options*/Seq.empty))
     }
 
     val scala: Option[ScalaData] = {
